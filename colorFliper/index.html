@@ -4,9 +4,35 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/colorFliper/style.css" />
     <title>Color Flipper | Vanilla Javascript Project</title>
   </head>
   <body>
+    <header class="header" id="headerId">
+      <nav class="nav" id="navId">
+        <div class="nav-center">
+          <h3>Color Flipper</h3>
+          <ul class="nav__list">
+            <li class="nav-item">
+              <a class="nav-link" href="./index.html">Simple Color</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./html/hex.html">Hexadecimal</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <main class="main" id="mainId">
+      <div class="container">
+        <h2 class="container-text">
+          Background color: <span class="color">#f1f5f8</span>
+        </h2>
+        <button class="btn btn__hero">Here!</button>
+      </div>
+    </main>
+    <!-- Javascript Vanilla-->
     <script src="/colorFliper/index.js"></script>
   </body>
 </html>
