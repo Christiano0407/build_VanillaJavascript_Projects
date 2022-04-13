@@ -38,7 +38,7 @@ body {
 }
 /** ====== Carousel*/
 .header {
-  margin-bottom: 2rem;
+  /* margin-bottom: 2rem; */
   display: flex;
   justify-content: space-between;
   padding: 0.5rem calc(var(--img-gap) * 2 + var(--handle-size));
@@ -76,7 +76,7 @@ body {
   justify-content: center;
   align-items: center;
   color: #000;
-  filter: opacity(0.6);
+  /* filter: opacity(0.6); */
   line-height: 0;
   transition: background-color 150ms ease-in-out;
   cursor: pointer;
