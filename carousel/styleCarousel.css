@@ -33,17 +33,24 @@ span {
 }
 body {
   width: 100%;
+  background-color: #333;
+  color: #fff;
 }
 /** ====== Carousel*/
 .header {
   margin-bottom: 2rem;
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem calc(var(--img-gap) * 2 + var(--handle-size));
+  align-items: center;
 }
 .title {
   font-size: 2.4rem;
   font-weight: 700;
-  color: #000;
+  color: #fff;
   position: relative;
   left: 2rem;
+  margin: 0;
 }
 .progress__bar {
   display: flex;
@@ -82,6 +89,13 @@ body {
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
 }
+.handle:hover .text,
+.handle:focus .text {
+  transform: scale(1.2);
+}
+.handle:active {
+  transform: scale(0.9);
+}
 /** == Carousel == Slider*/
 .slider {
   --item-per-screen: 4;
@@ -99,4 +113,29 @@ body {
   padding: var(--img-gap);
   border-radius: 1rem;
   cursor: pointer;
+}
+
+/** >>> ADD Javascript <<< */
+.progress-item {
+}
+.progress-item:activw {
+}
+
+/** ===== Media Queries =====*/
+@media (max-width: 500px) {
+  .slider {
+    --item-per-screen: 2;
+  }
+}
+
+@media (min-width: 768px) {
+  .slider {
+    --item-per-screen: 3;
+  }
+}
+
+@media (min-width: 1440px) {
+  .slider {
+    --item-per-screen: 4;
+  }
 }
