@@ -55,6 +55,8 @@ input[type="submit"] {
   border-radius: 0.5rem;
   cursor: pointer;
   margin-left: 1rem;
+}
+button.active {
   transform: scale(0.9);
 }
 .tasks {
@@ -70,6 +72,17 @@ input[type="submit"] {
 }
 /** = Javascript=*/
 .task .completed {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 }
-.task .done {
+.task .title {
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: #111;
+}
+.done {
+  display: inline-block;
+  padding: 0.5rem;
+  background-color: #ccc;
 }

@@ -55,8 +55,53 @@ function renderTasks() {
 
   const tasksContainer = document.querySelector("#tasks");
   tasksContainer.innerHTML = html.join("");
+
+  const startButtons = document.querySelectorAll(".task .start-button");
+  startButtons.forEach((startButton) => {
+    startButton.addEventListener("click", () => {
+      //> timer = null
+      if (!timer) {
+        startButtonHandler(startButton.getAttribute("data-id"));
+        startButton.textContent = " In Progress...";
+      }
+    });
+  });
 }
+//** = Calcular  los tiempos (25 min para concentrarte)= 4) */
+startButtonHandler = (id) => {
+  time = 25 * 60; //> Son 25 min y cada minuto tiene 60seg
+  current = id;
+  // Encontrar la tarea actual =>
+  const taskIndex = task.findIndex((task) => task.id === id);
+  const taskName = document.querySelector("#timeId #taskNameId");
+
+  taskName.textContent = tasks[taskIndex].title;
+
+  //> tiempo
+  timer = setInterval(() => {
+    timerHandler(id);
+  }, 1000);
+};
+
+//** === 5) */
+timerHandler = (id) => {
+  time--;
+  renderTime();
+
+  if (time === 0) {
+    markComplete(id);
+    clearInterval(time);
+    renderTasks();
+    startBreak();
+  }
+};
+
+//** == 6) */
+markComplete = () => {};
+
+startBreak = () => {};
+//> Formato a un número>
+renderTime = () => {};
 
 //** Map = devuelve cadenas de strings == join() => Compila todas las cadenas e mete en un  Array*/
-
 //** = setInterval ==> Cada determinado tiempo  = */
