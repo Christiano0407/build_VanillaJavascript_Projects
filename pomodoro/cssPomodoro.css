@@ -42,7 +42,7 @@ body {
 
 input[type="text"] {
   padding: 1rem;
-  border: solid 1px #ccc;
+  border: solid 1px #111;
   width: 30rem;
 }
 button,
@@ -55,6 +55,7 @@ input[type="submit"] {
   border-radius: 0.5rem;
   cursor: pointer;
   margin-left: 1rem;
+  transform: scale(0.9);
 }
 .tasks {
   display: flex;
@@ -66,4 +67,9 @@ input[type="submit"] {
   display: flex;
   gap: 1rem;
   align-items: center;
+}
+/** = Javascript=*/
+.task .completed {
+}
+.task .done {
 }
