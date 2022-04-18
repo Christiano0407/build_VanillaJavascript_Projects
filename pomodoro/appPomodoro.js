@@ -14,7 +14,8 @@ const bAdd = document.querySelector("#bAdd");
 const itTask = document.querySelector("#itTask"); //>Text
 const form = document.querySelector("#formId"); //> submit
 
-//renderTasks();
+//** => Render */
+renderTasks();
 
 //**  === Events == */
 
@@ -69,10 +70,10 @@ function renderTasks() {
 }
 //** = Calcular  los tiempos (25 min para concentrarte)= 4) */
 startButtonHandler = (id) => {
-  time = 25 * 60; //> Son 25 min y cada minuto tiene 60seg
+  time = 0.5 * 60; //> Son 25 min y cada minuto tiene 60seg
   current = id;
   // Encontrar la tarea actual =>
-  const taskIndex = task.findIndex((task) => task.id === id);
+  const taskIndex = tasks.findIndex((task) => task.id === id);
   const taskName = document.querySelector("#timeId #taskNameId");
 
   taskName.textContent = tasks[taskIndex].title;
@@ -84,24 +85,55 @@ startButtonHandler = (id) => {
 };
 
 //** === 5) */
-timerHandler = (id) => {
+timerHandler = (id = null) => {
   time--;
   renderTime();
 
   if (time === 0) {
     markComplete(id);
-    clearInterval(time);
+    clearInterval(timer);
     renderTasks();
     startBreak();
   }
 };
 
-//** == 6) */
-markComplete = () => {};
+//** =Nos ponga como la tarea se completó e reiniciar= 6) */
+markComplete = (id) => {
+  const taskId = tasks.findIndex((task) => task.id === id);
+  tasks[taskId].completed = true;
+};
 
-startBreak = () => {};
+//**Start */
+startBreak = () => {
+  time = 1 * 60;
+  document.querySelector("#timeId  #taskNameId").textContent = "Break";
+  timerBreak = setInterval(timerBreakHandler, 1000);
+};
+
+//**Break */
+timerBreakHandler = () => {
+  time--;
+  renderTime();
+
+  if (time === 0) {
+    clearInterval(timerBreak);
+    current = null;
+    document.querySelector("#timeId #taskNameId").textContent = " ";
+    renderTime();
+  }
+};
+
+//**Render */
 //> Formato a un número>
-renderTime = () => {};
+renderTime = () => {
+  const timeDiv = document.querySelector("#timeId  #valueId");
+  const minutes = parseInt(time / 60);
+  const seconds = parseInt(time % 60);
+
+  timeDiv.textContent = `${minutes < 10 ? "0" : " "}${minutes}:${
+    seconds < 10 ? "0" : " "
+  }${seconds}`;
+};
 
 //** Map = devuelve cadenas de strings == join() => Compila todas las cadenas e mete en un  Array*/
 //** = setInterval ==> Cada determinado tiempo  = */
