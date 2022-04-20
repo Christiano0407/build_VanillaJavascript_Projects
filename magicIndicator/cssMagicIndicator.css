@@ -87,4 +87,25 @@ body {
   pointer-events: none;
   position: absolute;
   bottom: calc();
+  transition: 250ms ease-in-out;
+  transform: translateY(50%);
+}
+.list .icon {
+  position: relative;
+  transition: 250ms ease-in-out;
+}
+.list .icon svg {
+  fill: currentColor;
+  width: var(--icon-size);
+  height: var(--icon-size);
+  display: block;
+}
+/** => Clave Active =*/
+.list .active .text {
+  pointer-events: all;
+  opacity: 1;
+  transform: translateY(0);
+}
+.list {
+  position: relative;
 }
