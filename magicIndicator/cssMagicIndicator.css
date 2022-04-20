@@ -86,9 +86,10 @@ body {
   opacity: 0;
   pointer-events: none;
   position: absolute;
-  bottom: calc();
+  bottom: 0.5rem;
   transition: 250ms ease-in-out;
   transform: translateY(50%);
+  color: #000;
 }
 .list .icon {
   position: relative;
@@ -108,4 +109,35 @@ body {
 }
 .list {
   position: relative;
+}
+.list .active .icon {
+  transform: translateY(calc(-50% - var(--nav-item-padding)));
+}
+
+/** = Indicators =  (left: 60px)*/
+.indicator {
+  position: absolute;
+  left: calc(
+    var(--position) * (var(--icon-size) + var(--nav-item-padding) * 2)
+  );
+  transition: 250ms ease-in-out;
+}
+.indicator::after,
+.indicator::before {
+  content: " ";
+  position: absolute;
+  border-radius: 100%;
+}
+.indicator::after {
+  background-color: hsl(100, 100%, 50%);
+  width: calc(var(--icon-size) * 2);
+  height: calc(var(--icon-size) * 2);
+  top: calc(-1 * var(--icon-size));
+}
+.indicator::before {
+  background-color: var(--background-color);
+  width: calc(var(--icon-size) + var(--indicator-spacing) * 2);
+  height: calc(var(--icon-size) + var(--indicator-spacing) * 2);
+  top: calc(-1 * var(--icon-size) - var(--indicator-spacing));
+  left: calc(-1 * var(--indicator-spacing));
 }
