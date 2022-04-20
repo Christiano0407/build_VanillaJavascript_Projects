@@ -43,3 +43,8 @@ El método closest() de la interfaz Element devuelve el ascendiente más cercano
 /*
 The CSSStyleDeclaration.setProperty() method interface sets a new value for a property on a CSS style declaration object.
  */
+
+//*? =  Event.target = */
+/*
+La propiedad target de la interfaz del event.currentTarget es una referencia al objeto en el cual se lanzo el evento. Es diferente de event.currentTarget donde el controlador de eventos (event handler) es llamado durante la fase de bubbling or capturing del evento.
+*/
