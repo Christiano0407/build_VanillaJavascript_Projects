@@ -4,10 +4,43 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    />
     <link rel="stylesheet" href="../playerMusic/cssMusic.css" />
     <title>Player Music</title>
   </head>
   <body>
+    <h1>Player Music</h1>
+
+    <main class="main">
+      <div class="music-container" id="musicContainer">
+        <div class="music-info">
+          <h2 class="title" id="title"></h2>
+          <div class="progress-container" id="progressContainer">
+            <div class="progress" id="progress"></div>
+          </div>
+        </div>
+
+        <audio src="" id="audio"></audio>
+
+        <div class="img-container" id="navigation">
+          <img src="" alt="audio" id="cover" />
+        </div>
+        <div class="navigation">
+          <button class="btn action-btn" id="prev">
+            <i class="fas fa-backward"></i>
+          </button>
+          <button class="btn action-btn action-btn-big" id="play">
+            <i class="fas fa-play"></i>
+          </button>
+          <button class="btn action-btn" id="next">
+            <i class="fas fa-forward"></i>
+          </button>
+        </div>
+      </div>
+    </main>
     <!-- ==== Player Music App Javascript === -->
     <script src="./appMusic.js"></script>
   </body>
