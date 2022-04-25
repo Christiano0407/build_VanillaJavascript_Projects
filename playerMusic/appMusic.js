@@ -27,7 +27,7 @@ loadSong(songs[songIndex]);
 //** = 4) Update = Descargar detalles de la canción =  */
 function loadSong(song) {
   title.innerText = song;
-  audio.src = `../src/assets/audio/${song}.mp3`;
+  audio.src = `../src/audio/${song}.mp3`;
   cover.src = `../src/assets/${song}.jpg`;
 }
 
@@ -35,9 +35,15 @@ function loadSong(song) {
 
 function playSong() {
   musicContainer.classList.add("play");
+  btnPlay.querySelector(`i.fas`).classList.remove("fa-play");
+  btnPlay.querySelector(`i.fas`).classList.add(`fa-pause`);
 }
 
-function pauseSong() {}
+function pauseSong() {
+  musicContainer.classList.remove("play");
+  btnPlay.querySelector(`i.fas`).classList.add(`fa-play`);
+  btnPlay.querySelector(`i.fas`).classList.remove(`fa-pause`);
+}
 
 //** = 5) Event Listener Play =  */
 btnPlay.addEventListener("click", () => {
