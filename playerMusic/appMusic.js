@@ -24,4 +24,8 @@ let songIndex = 2;
 loadSong(songs[songIndex]);
 
 //** = 4) Update = Descargar detalles de la canción =  */
-function loadSong(song) {}
+function loadSong(song) {
+  title.innerText = song;
+  audio.src = `..src/assets/audio/${song}.mp3`;
+  cover.src = `../src/assets/${song}.jpg`;
+}
