@@ -13,4 +13,15 @@ const btnNext = document.querySelector("#next");
 //** Audio */
 const audio = document.querySelector("#audio");
 
-//** == Array Songs Titles == */
+//** ====== ======= Init Project Play Music ========= ========  */
+//** == Array Songs Titles  == 1)  */
+const songs = ["Remix", "Clocks", "Travel"];
+
+//** = Keep track = escuchar de Canciones 2)  */
+let songIndex = 2;
+
+//** = Cargar =  load 3 ) */
+loadSong(songs[songIndex]);
+
+//** = 4) Update = Descargar detalles de la canción =  */
+function loadSong(song) {}
