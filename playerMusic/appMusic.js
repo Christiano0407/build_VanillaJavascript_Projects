@@ -4,6 +4,7 @@ const musicContainer = document.querySelector("#musicContainer");
 const progressContainer = document.querySelector("#progressContainer");
 const progress = document.querySelector("#progress");
 const title = document.querySelector("#title");
+console.log(title);
 const cover = document.querySelector("#cover"); //> IMG>
 
 //** >  Buttons =  */
@@ -15,10 +16,10 @@ const audio = document.querySelector("#audio");
 
 //** ====== ======= Init Project Play Music ========= ========  */
 //** == Array Songs Titles  == 1)  */
-const songs = ["Remix", "Clocks", "Travel"];
+const songs = ["audio", "clocks", "travel"];
 
 //** = Keep track = escuchar de Canciones 2)  */
-let songIndex = 2;
+let songIndex = 0;
 
 //** = Cargar =  load 3 ) */
 loadSong(songs[songIndex]);
@@ -26,6 +27,25 @@ loadSong(songs[songIndex]);
 //** = 4) Update = Descargar detalles de la canción =  */
 function loadSong(song) {
   title.innerText = song;
-  audio.src = `..src/assets/audio/${song}.mp3`;
+  audio.src = `../src/assets/audio/${song}.mp3`;
   cover.src = `../src/assets/${song}.jpg`;
 }
+
+//** 6)  = PlaySong = puseSong */
+
+function playSong() {
+  musicContainer.classList.add("play");
+}
+
+function pauseSong() {}
+
+//** = 5) Event Listener Play =  */
+btnPlay.addEventListener("click", () => {
+  const isPlaying = musicContainer.classList.contains("play");
+
+  if (isPlaying) {
+    pauseSong();
+  } else {
+    playSong();
+  }
+});
