@@ -19,7 +19,7 @@ const audio = document.querySelector("#audio");
 const songs = ["audio", "clocks", "travel"];
 
 //** = Keep track = escuchar de Canciones 2)  */
-let songIndex = 0;
+let songIndex = 1;
 
 //** = Cargar =  load 3 ) */
 loadSong(songs[songIndex]);
@@ -57,3 +57,23 @@ btnPlay.addEventListener("click", () => {
     playSong();
   }
 });
+
+//** 7)  == Change Image and audio => Cambiar audio e img por event == */
+btnPrev.addEventListener("click", prevSong);
+btnNext.addEventListener("click", nextSong);
+//*?Previous Song */
+function prevSong() {
+  songIndex--;
+
+  if (songIndex < 0) {
+    songIndex = songs.length - 1;
+  }
+
+  loadSong(songs[songIndex]);
+
+  playSong();
+}
+//*?Next Song */
+function nextSong() {
+  songIndex++;
+}
