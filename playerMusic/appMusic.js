@@ -102,6 +102,17 @@ setProgress = (e) => {
   audio.currentTime = (clickX / width) * duration;
 };
 
+//*? === 10)  Time Duration >>> get Duration & currentTime ==  */
+function timeDuration(e) {
+  const { duration, currentTime } = e.srcElement;
+  let sec;
+  let sec_d;
+
+  // Define minutes / CurrentTime
+
+  // Define Seconds => currentTime
+}
+
 //** == 8)  Time and update the songs  == */
 audio.addEventListener("timeupdate", updateProgress);
 
@@ -110,3 +121,6 @@ progressContainer.addEventListener("click", setProgress);
 
 //** == 10) Songs End / Final de canción == */
 audio.addEventListener("ended", nextSong);
+
+//** === 11) Time of songs / Tiempo de duración de canción == */
+audio.addEventListener("timeupdate", timeDuration);
