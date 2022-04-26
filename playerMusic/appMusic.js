@@ -107,3 +107,6 @@ audio.addEventListener("timeupdate", updateProgress);
 
 //** === 9)  Click and Progress Bar ==  */
 progressContainer.addEventListener("click", setProgress);
+
+//** == 10) Songs End / Final de canción == */
+audio.addEventListener("ended", nextSong);

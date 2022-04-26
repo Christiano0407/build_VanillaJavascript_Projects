@@ -90,13 +90,13 @@ h1 {
 }
 .img-container::after {
   content: " ";
-  background-color: #5534a5;
+  background-color: var(--clr-primary);
   border-radius: 50%;
   position: absolute;
-  bottom: 100%;
+  bottom: 130%;
   left: 50%;
-  width: 2rem;
-  height: 2rem;
+  width: 1.5rem;
+  height: 1.5rem;
   transform: translate(-50%, 50%);
 }
 .img-container .img-Cover {
@@ -169,7 +169,7 @@ h1 {
   transform: translateY(0%);
   transition: transform 0.3s ease-in, opacity 0.3s ease-in;
 }
-/** JS Animation Info = */
+/** JS Animation Music Info = */
 .music-container.play .music-info {
   opacity: 1;
   transform: translateY(-100%);
@@ -177,6 +177,9 @@ h1 {
 
 .music-info h2 {
   margin: 0;
+  font-size: 1.4rem;
+  color: #fff;
+  font-weight: 500;
 }
 .progress-container {
   background-color: #fff;
