@@ -85,3 +85,25 @@ function nextSong() {
 
   playSong();
 }
+
+//*? == 8)  UpdateProgress / Audio  ==  */
+updateProgress = (e) => {
+  const { duration, currentTime } = e.srcElement;
+  const progressParent = (currentTime / duration) * 100;
+  progress.style.width = `${progressParent}%`;
+};
+
+//*? === 9) Ser Progress Bar / Obtener el Progress / Audio ===  */
+setProgress = (e) => {
+  const width = this.clientWidth;
+  const clickX = e.offsetX;
+  const duration = audio.duration;
+
+  audio.currentTime = (clickX / width) * duration;
+};
+
+//** == 8)  Time and update the songs  == */
+audio.addEventListener("timeupdate", updateProgress);
+
+//** === 9)  Click and Progress Bar ==  */
+progressContainer.addEventListener("click", setProgress);
