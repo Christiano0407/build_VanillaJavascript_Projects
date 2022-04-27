@@ -59,8 +59,6 @@ btnPlay.addEventListener("click", () => {
 });
 
 //** 7)  == Change Image and audio => Cambiar audio e img por event == */
-btnPrev.addEventListener("click", prevSong);
-btnNext.addEventListener("click", nextSong);
 //*?Previous Song */
 function prevSong() {
   songIndex--;
@@ -86,15 +84,6 @@ function nextSong() {
   playSong();
 }
 
-//*? 11)  == DurTime == Tiempo de duración ==  */
-function durTime(e) {
-  const { duration, currentTime } = e.srcElement;
-  let sec;
-  let sec_d;
-
-  //> Define minutes currentTime =
-}
-
 //*? == 8)  UpdateProgress / Audio  ==  */
 updateProgress = (e) => {
   const { duration, currentTime } = e.srcElement;
@@ -108,21 +97,70 @@ updateProgress = (e) => {
 setProgress = (e) => {
   const width = this.clientWidth;
   const clickX = e.offsetX;
+  //console.log(clickX);
   const duration = audio.duration;
+  //console.log(duration);
 
   audio.currentTime = (clickX / width) * duration;
 };
 
-//*? === 10)  Time Duration >>> get Duration & currentTime ==  */
-function timeDuration(e) {
+//*? 11)  == DurTime == Tiempo de duración ==  */
+function durTime(e) {
   const { duration, currentTime } = e.srcElement;
   let sec;
   let sec_d;
 
-  // Define minutes / CurrentTime
+  //> Define minutes currentTime =
+  let min = currentTime == null ? 0 : Math.floor(currentTime / 60);
+  min = min < 10 ? "0" + min : min;
 
-  // Define Seconds => currentTime
+  //> Define Seconds currentTime ==
+  function get_sec(x) {
+    if (Math.floor(x) >= 60) {
+      for (let i = 1; i <= 60; i++) {
+        if (Math.floor(x) >= 60 * i && Math.floor(x) < 60 * (i + 1)) {
+          sec = Math.floor(x) - 60 * i;
+          sec = sec < 10 ? "0" + sec : sec;
+        }
+      }
+    } else {
+      sec = Math.floor(x);
+      sec = sec < 10 ? "0" + sec : sec;
+    }
+  }
+  //> get
+  get_sec(currentTime, sec);
+
+  //> Define minutes duration ==>
+  let min_d = isNaN(duration) === true ? "0" : Math.floor(duration / 60);
+  min_d = min_d < 10 ? "0" + min_d : min_d;
+
+  //> Get__sec_duration
+  function get_sec_d(x) {
+    if (Math.floor(x) >= 60) {
+      for (let i = 1; i <= 60; i++) {
+        if (Math.floor(x) >= 60 * i && Math.floor(x) < 60 * i + 1) {
+          sec_d = Math.floor(x) - 60 * i;
+          sec_d = sec_d < 10 ? "0" + sec_d : sec_d;
+        }
+      }
+    } else {
+      sec_d = isNaN(duration) === true ? "0" : Math.floor(x);
+      sec_d = sec_d < 10 ? "0" + sec_d : sec_d;
+    }
+  }
+
+  // Define Seconds Duration
+  get_sec_d(duration);
+
+  // Change Duration DOM
+
+  durTime.innerHTML = min_d + ": " + sec_d;
 }
+
+//** == 7) Button Prev and Next ===  */
+btnPrev.addEventListener("click", prevSong);
+btnNext.addEventListener("click", nextSong);
 
 //** == 8)  Time and update the songs  == */
 audio.addEventListener("timeupdate", updateProgress);
@@ -130,13 +168,13 @@ audio.addEventListener("timeupdate", updateProgress);
 //** === 9)  Click and Progress Bar ==  */
 progressContainer.addEventListener("click", setProgress);
 
-//** == 10) Songs End / Final de canción == */
+//** == 10) Songs End / Final de canción = Termina comienza otra canción = */
 audio.addEventListener("ended", nextSong);
 
 //** === 11) Time of songs / Tiempo de duración de canción == */
 audio.addEventListener("timeupdate", durTime);
 
-//** ============================================================ */
+//*? =========== ======== =========== ==== ============= ========= ======== */
 //**  == Element.clientWidth */
 /* 
 La propiedad Element.clientWidth es cero para elementos sin CSS o cajas de diseño (layout), en caso contrario es la anchura interior de un elemento en pixels, incluyendo la anchura de relleno (padding) pero no la anchura de la barra de desplazamiento vertical (si está presente, si está dibujada), el borde o el margen.
