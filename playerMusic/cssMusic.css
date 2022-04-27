@@ -189,8 +189,9 @@ h1 {
   cursor: pointer;
   margin: 1rem 0;
 }
+/** =  Duration / CurrentTime  with Javascript  =  */
 .progress {
-  background-color: var(--clr-three);
+  background-color: #000;
   border-radius: 0.5rem;
   height: 100%;
   width: 0%;

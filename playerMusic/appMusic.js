@@ -86,12 +86,23 @@ function nextSong() {
   playSong();
 }
 
+//*? 11)  == DurTime == Tiempo de duración ==  */
+function durTime(e) {
+  const { duration, currentTime } = e.srcElement;
+  let sec;
+  let sec_d;
+
+  //> Define minutes currentTime =
+}
+
 //*? == 8)  UpdateProgress / Audio  ==  */
 updateProgress = (e) => {
   const { duration, currentTime } = e.srcElement;
+  //console.log(duration);
   const progressParent = (currentTime / duration) * 100;
   progress.style.width = `${progressParent}%`;
 };
+//console.log(updateProgress());
 
 //*? === 9) Ser Progress Bar / Obtener el Progress / Audio ===  */
 setProgress = (e) => {
@@ -123,4 +134,25 @@ progressContainer.addEventListener("click", setProgress);
 audio.addEventListener("ended", nextSong);
 
 //** === 11) Time of songs / Tiempo de duración de canción == */
-audio.addEventListener("timeupdate", timeDuration);
+audio.addEventListener("timeupdate", durTime);
+
+//** ============================================================ */
+//**  == Element.clientWidth */
+/* 
+La propiedad Element.clientWidth es cero para elementos sin CSS o cajas de diseño (layout), en caso contrario es la anchura interior de un elemento en pixels, incluyendo la anchura de relleno (padding) pero no la anchura de la barra de desplazamiento vertical (si está presente, si está dibujada), el borde o el margen.
+*/
+
+//** == MouseEvent.offsetX */
+/*
+La offsetXpropiedad de solo lectura de la MouseEventinterfaz proporciona el desplazamiento en la coordenada X del puntero del mouse entre ese evento y el borde de relleno del nodo de destino.
+*/
+
+//** === Play ()  == HTMLMediaElement.play() == */
+/*
+El método play() de HTMLMediaElement intenta comenzar la reproducción de los medios. Devuelve una promesa (Promise) que se resuelve cuando la reproducción se ha iniciado con éxito. Si no se inicia la reproducción por cualquier motivo, como problemas de permisos, la promesa será rechazada.
+*/
+
+//** === Paused () == HTMLMediaElement.pause() ==  */
+/*
+El método HTMLMediaElement.pause() pausará la reproducción de los medios, si los medios ya están en pausa, este método no tendrá efecto.
+*/
