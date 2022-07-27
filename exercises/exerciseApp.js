@@ -52,7 +52,42 @@ const renderTask = () => {
        </div>
     `;
   });
+
   const containerTasks = document.querySelector(`#taskList`);
   containerTasks.innerHTML = html.join(" ");
+
+  const startButton = document.querySelector(`.task .start-button`);
+
+  startButton.forEach((button) => {
+    button.addEventListener("click", (e) => {
+      if (!timer) {
+        const id = button.getAttribute(`data-id`);
+        startButtonHandler(id);
+        button.textContent = `In Progress...`;
+      }
+    });
+  });
 };
 // ==> join() => Une los Strings
+
+//*! == Start Time == */
+const startButtonHandler = (id) => {
+  // TIMER =>
+  time = 25 * 60;
+  current = id;
+  const taskIndex = tasks.findIndex((task) => task.id === id);
+  const taskName = document.querySelector(`#time #taskName`);
+  taskName.textContent = tasks[taskIndex].title;
+  // Cuenta Regresiva =>
+  timer = setInterval(() => {
+    timeHandler(id);
+  }, 1000);
+};
+
+//*! == TimeHandler => Cuenta Regresiva == */
+const timeHandler = (id) => {
+  time--;
+  renderTime();
+};
+
+const renderTime = () => {};
