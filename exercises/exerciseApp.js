@@ -30,12 +30,12 @@ form.addEventListener("submit", (e) => {
 //** === Function */
 const createTask = (value) => {
   const newTask = {
-    id: (Math.random() * 100).toString(36).slice(3),
+    id: (Math.random() * 100).toString(36).slice(2),
     title: value,
     completed: true,
   };
 
-  tasks.unshift(newTask);
+  tasks.unshift(newTask); // => Compilar como llegan =
 };
 
 //*! == Rendering Task == */
@@ -52,6 +52,7 @@ const renderTask = () => {
        </div>
     `;
   });
-  taskContainer.innerHTML = html.join(" ");
+  const containerTasks = document.querySelector(`#taskList`);
+  containerTasks.innerHTML = html.join(" ");
 };
 // ==> join() => Une los Strings
